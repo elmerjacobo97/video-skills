@@ -1,8 +1,0 @@
-{
-  "frames": [
-    { "type": "cover", "title": "Tu tarjeta de papel *no guarda tus leads*", "text": "Cada lead no registrado es una venta perdida." },
-    { "type": "feature", "title": "Captura de leads *automática*", "text": "Cada prospecto que te escribe queda registrado.", "images": ["assets/img/leads.jpg"] },
-    { "type": "feature", "title": "Sugerencias con *IA* y estadísticas", "text": "Mira qué tarjetas y enlaces interesan más.", "images": ["assets/img/ia.jpg", "assets/img/estadisticas.jpg"] },
-    { "type": "closing", "title": "Tu tarjeta digital que *guarda tus leads*", "text": "Crea la tuya hoy.", "cta": "tarjetly.com" }
-  ]
-}

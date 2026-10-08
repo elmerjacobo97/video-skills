@@ -1,6 +1,6 @@
 ---
 name: video-promo
-description: "Generate a 1080x1920 vertical promo video (TikTok/Reels) for a product, site, or new feature, using the promoted product's own brand (colors, font, logo) instead of the user's. Use when the user asks for an ad, promo, or launch video of a project or URL. Renders with HyperFrames."
+description: "Make a 1080x1920 vertical promo video (TikTok/Reels) for a product, site, or new feature, using the promoted product's own brand (colors, font, logo) instead of the user's, with scenes authored one by one so each video moves differently. Use when the user asks for an ad, promo, or launch video of a project or URL. Renders with HyperFrames."
 license: MIT
 metadata:
   author: elmerjacobo97
@@ -8,41 +8,40 @@ metadata:
 
 # video-promo
 
-Turns a product, site, or feature into a vertical promo MP4 with 3D screenshot scenes. The motion and layout live in `scripts/generate.mjs`; the **brand belongs to the promoted product** and is extracted fresh for each video into `brand.json`. For developer content in the user's own brand, use `video-tiktok` instead.
+Builds a vertical promo MP4 for a product, site, or feature. The **brand belongs to the promoted product** and is extracted fresh for each video into `brand.json`. Scenes are authored by hand following `video-motion` (varied motion, transitions, camera, and sound); there is no fixed generator. For developer content in the user's own brand, use `video-tiktok`.
 
-- `VIDEOS` = `/Volumes/T7SHIELD/Projects/videos`. Every video goes in `VIDEOS/YYYY-MM-DD-<topic>/`, regardless of which project invoked the skill.
+Load `video-motion` first and follow its workflow; this file adds what is specific to promos.
+
+- `VIDEOS` = `/Volumes/T7SHIELD/Projects/videos`. Every video goes in `VIDEOS/YYYY-MM-DD-<topic>/`, whichever project invoked the skill.
 - `SKILL` = this skill's folder (the "Base directory" you receive when loading it).
-- On-screen text (titles, text, CTA) is written in the video's language, Spanish by default. Files and keys are in English.
+- On-screen text is in the video's language, Spanish by default.
 
 ## Steps
 
 1. **Folder.** Create `VIDEOS/YYYY-MM-DD-<topic-in-kebab>/`. If it exists, ask before overwriting.
 2. **Source material.**
-   - Site: `mkdir -p .tmp && TMPDIR="$PWD/.tmp/" npx hyperframes capture "<URL>" -o ./capture --json; rm -rf .tmp`. Read `capture/extracted/visible-text.txt`, `capture/extracted/tokens.json`, and view `capture/assets/contact-sheet-*.jpg` to pick screenshots.
-   - Local project (new feature): read the code and screenshots of the repo that invoked you; take colors and font from its CSS/Tailwind config.
-3. **Brand.** Write `<folder>/brand.json` (format: `references/brand.md`) from the product's real colors, font, logo, and icon. Copy the font files, logo, and icon into the folder. **Show the brand to the user and wait for corrections before generating.**
-4. **Content.** Copy the chosen screenshots to `<folder>/assets/img/`. Write `<folder>/video.json` (format: `references/video-json.md`). Use only real text from the product or the user. Never invent figures, clients, testimonials, or prices.
-5. **Generate.** `node SKILL/scripts/generate.mjs <folder>`. On failure the message says what to fix.
-6. **Check.** Inside the folder: `npx hyperframes check` (fix every `✗`), then `npx hyperframes snapshot --at <midpoint of each frame>` and read `snapshots/contact-sheet.jpg`. Look for text overlapping the screenshots.
-7. **Render.**
+   - Site: `mkdir -p .tmp && TMPDIR="$PWD/.tmp/" npx hyperframes capture "<URL>" -o ./capture --json; rm -rf .tmp`. Read `capture/extracted/visible-text.txt` and `tokens.json`, and view `capture/assets/contact-sheet-*.jpg` to pick screenshots.
+   - Local project (a feature, or the whole product): read the code and screenshots of the repo that invoked you; take colors and font from its CSS or Tailwind config.
+3. **Brand.** Write `<folder>/brand.json` (format and where to find each value: `references/brand.md`). Copy the font files, logo, and icon into the folder. **Show the brand to the user and wait for corrections before building.**
+4. **Scope.** One feature, or the whole product? For the whole product, pick the 2–3 strongest functions and confirm them with the user; if there are more, suggest a series of short videos with the same `brand.json`.
+5. **Scenes.** Follow `video-motion`: hook, style, scene plan table (approved by the user), build, verify. Copy the chosen screenshots to `<folder>/assets/img/`. Use only real text, figures, and screens from the product; never invent clients, testimonials, or prices.
+6. **Render.**
    ```bash
    mkdir -p .tmp && TMPDIR="$PWD/.tmp/" npx hyperframes render --quality high --output renders/<topic>-9x16.mp4; rm -rf .tmp
    ```
    One render per format: overwrite, do not accumulate `-v2`.
-8. **Deliver.** MP4 path, real duration (`ffprobe`), and a publishing kit: title, description, 5 hashtags.
+7. **Deliver.** MP4 path, real duration (`ffprobe`), and a publishing kit: title, description, 5 hashtags.
 
-## Hook and structure
+## Promo structure
 
-- 15–25 s, 4 to 6 frames: `cover` (hook) → 1–3 `feature` → `closing` (CTA).
-- The `cover` title speaks to the viewer's pain or desired result, not to the product name. Propose 3 hooks (pain, contrast, result) unless the user already gave one.
-- One feature per frame, one benefit sentence (max 15 words), one or two screenshots.
-- `closing` repeats the promise and ends with the real URL or handle in `cta`.
+- 15–25 s, 4 to 6 scenes: hook, 1–3 features (one benefit sentence each, max 15 words), closing with the real URL or handle.
+- The hook speaks to the viewer's pain or desired result, not to the product name.
+- Screenshots: prefer real product screens with large readable elements; avoid tiny text. Show them in motion (depth, camera, scroll) rather than as static images.
+- Brand colors come only from `brand.json`; never use the user's personal brand (lime on black) unless asked.
+- Make sure text over a screenshot or gradient keeps AA contrast.
 
 ## Working rules
 
-- Never start servers (`preview`, `dev`). Verify with `check` and `snapshot`.
 - Never commit. Before overwriting a project or render, confirm with the user.
-- `compositions/frames/` and `index.html` are generated: change `video.json` or `brand.json` and regenerate.
-- No music inside the video; the user adds it in TikTok.
-- Keep TikTok safe zones: 12 % top, 25 % bottom, 8 % sides. The generator already respects them; do not add elements outside.
-- Do not reuse the user's personal brand (lime on black) unless asked.
+- `index.html` and `compositions/` are authored per video; keep scene files small and named by scene (`01-hook.html`, `02-leads.html`).
+- Keep TikTok safe zones (`video-motion` → `references/tiktok-format.md`).

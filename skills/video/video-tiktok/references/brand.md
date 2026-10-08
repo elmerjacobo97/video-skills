@@ -1,6 +1,6 @@
 # Brand
 
-Source of truth: `assets/brand.json` (colors, fonts, closing texts). The generator already applies these rules; do not break them in generated frames.
+Source of truth: `assets/brand.json` (colors, fonts, closing texts). The quick generator applies these rules automatically; in authored scenes, apply them yourself. Do not break them.
 
 - Background `#0B0B0B`, text `#F5F4EF`, lime accent `#D4FF3F`.
 - Lime goes on titles, numbers, and keywords. Never as a full background; small highlight blocks are fine.
@@ -11,6 +11,6 @@ Source of truth: `assets/brand.json` (colors, fonts, closing texts). The generat
 - `elmerjacobo.dev` always lowercase, in the header of every frame (cover included), below the progress bar.
 - Full-width progress bar, one segment per frame. No `2/6` counter.
 
-## Ads with the client's brand
+## Ads with another brand
 
-The generator only knows the user's brand. For an ad with the client's brand (site colors and font), build the video by hand in HyperFrames: capture the site, take colors and fonts from `capture/extracted/tokens.json`, and keep the TikTok safe zones. If this repeats, turn it into its own skill (`video-anuncio`) with its own generator.
+For a promo of a product, site, or client, use `video-promo`: it extracts the promoted product's own brand for each video.
