@@ -1,0 +1,21 @@
+{
+  "name": "Tarjetly",
+  "logo": "assets/img/logo.svg",
+  "icon": "assets/img/icon.png",
+  "cta": "tarjetly.com",
+  "colors": {
+    "background": "#030081",
+    "backgroundTop": "#1a12a8",
+    "glow": "#b52fb0",
+    "text": "#ffffff",
+    "accent": "#32a7e0",
+    "onAccent": "#030081"
+  },
+  "font": {
+    "family": "Onest",
+    "files": {
+      "400": "assets/fonts/Onest-Regular.woff2",
+      "700": "assets/fonts/Onest-Bold.woff2"
+    }
+  }
+}

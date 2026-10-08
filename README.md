@@ -2,13 +2,19 @@
 
 # Video Skills
 
-Skills for generating videos with HyperFrames (HTML + GSAP rendered to MP4). Each skill carries its own generator, brand, and references: none depends on a user folder.
+Skills for generating videos with HyperFrames (HTML + GSAP rendered to MP4). Each skill carries its own generator and references: none depends on a user folder.
 
 ## Skills
 
 | Skill | Use |
 | --- | --- |
 | [`video-tiktok`](./skills/video/video-tiktok/SKILL.md) | Vertical 1080x1920 TikTok videos with the elmerjacobo.dev brand: tutorials, lists, and ads |
+| [`video-promo`](./skills/video/video-promo/SKILL.md) | Vertical promo videos of a product, site, or feature using the promoted product's own brand (colors, font, logo) |
+
+## Which one to use
+
+- **`video-tiktok`**: content in your own brand (tutorials, lists, comparisons). The brand is fixed inside the skill.
+- **`video-promo`**: promotion of a product, site, or feature. The brand is extracted from the promoted product for each video and written to `brand.json` in the video folder.
 
 ## Installation
 
@@ -28,7 +34,7 @@ Or from this repo, inside the target folder:
 skills/video/<skill>/
   SKILL.md       workflow and rules
   scripts/       generator
-  assets/        brand, fonts, sounds, example
+  assets/        fonts, sounds, example (video-tiktok also keeps its fixed brand here)
   references/    video.json format, brand
 ```
 

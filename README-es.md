@@ -9,6 +9,12 @@ Skills para generar videos con HyperFrames (HTML + GSAP renderizado a MP4). Cada
 | Skill | Uso |
 | --- | --- |
 | [`video-tiktok`](./skills/video/video-tiktok/SKILL.md) | Videos verticales 1080x1920 para TikTok con la marca elmerjacobo.dev: tutoriales, listas y anuncios |
+| [`video-promo`](./skills/video/video-promo/SKILL.md) | Videos promocionales verticales de un producto, sitio o feature con la marca del propio producto (colores, fuente, logo) |
+
+## Cuál usar
+
+- **`video-tiktok`**: contenido con tu propia marca (tutoriales, listas, comparativas). La marca es fija y vive dentro de la skill.
+- **`video-promo`**: promoción de un producto, sitio o feature. La marca se extrae del producto promocionado en cada video y se guarda en `brand.json` dentro de la carpeta del video.
 
 ## Instalación
 
@@ -28,7 +34,7 @@ O desde este repo, en la carpeta destino:
 skills/video/<skill>/
   SKILL.md       flujo y reglas
   scripts/       generador
-  assets/        marca, fuentes, sonidos, ejemplo
+  assets/        fuentes, sonidos, ejemplo (video-tiktok también guarda aquí su marca fija)
   references/    formato de video.json, marca
 ```
 
