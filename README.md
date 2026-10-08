@@ -9,6 +9,7 @@ Skills for generating videos with HyperFrames (HTML + GSAP rendered to MP4). Eac
 | Skill | Use |
 | --- | --- |
 | [`video-tiktok`](./skills/video/video-tiktok/SKILL.md) | Vertical 1080x1920 TikTok videos with the elmerjacobo.dev brand: tutorials, lists, and ads |
+| [`video-promo`](./skills/video/video-promo/SKILL.md) | Vertical promo videos of a product, site, or feature using the promoted product's own brand (colors, font, logo) |
 
 ## Installation
 
