@@ -34,7 +34,12 @@ Load `video-motion` first and follow its workflow; this file adds what is specif
 
 ## Promo structure
 
-- 15–25 s, 4 to 6 scenes: hook, 1–3 features (one benefit sentence each, max 15 words), closing with the real URL or handle.
+- Duration comes from the content: each scene takes about 4–5 s (enough to read the text and see the motion), so total ≈ scenes × 4–5 s. Ranges, not caps:
+  - One feature: 15–25 s (hook, 1–2 features, closing).
+  - Whole product: 25–40 s (hook, 3 features, one real proof or figure, closing).
+  - Quick hook ad: 8–15 s (hook and CTA).
+- Go longer only if every scene adds something new; cut any scene that repeats an earlier one.
+- Each feature: one benefit sentence, max 15 words. Closing with the real URL or handle.
 - The hook speaks to the viewer's pain or desired result, not to the product name.
 - Screenshots: prefer real product screens with large readable elements; avoid tiny text. Show them in motion (depth, camera, scroll) rather than as static images.
 - Brand colors come only from `brand.json`; never use the user's personal brand (lime on black) unless asked.

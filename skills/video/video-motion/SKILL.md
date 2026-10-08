@@ -32,7 +32,7 @@ Brand and output folder come from the calling skill: `video-tiktok` (user's bran
    | # | Message (≤ 15 words) | Entrance | Camera | Transition out | Sound |
    | --- | --- | --- | --- | --- | --- |
 
-   Apply the variety rules below to the table. Wait for approval or corrections.
+   Add the total duration under the table (scenes × 4–5 s) and check it against the ranges in `references/tiktok-format.md`. Apply the variety rules below to the table. Wait for approval or corrections.
 4. **Build.** One sub-composition per scene in `compositions/`, mounted from `index.html` (see `hyperframes-core` → sub-compositions). Reuse registry blocks before hand-building a named effect. Brand tokens go in shared CSS variables.
 5. **Verify.** `npx hyperframes check`, then `snapshot` at each scene's midpoint and read the contact sheet. Optionally audit choreography with the animation map script of `hyperframes-animation`.
 6. **Render and deliver** as defined by the calling skill.
