@@ -25,6 +25,7 @@ Brand and output folder come from the calling skill: `video-tiktok` (user's bran
 
 ## Workflow
 
+0. **Prerequisites.** Confirm that `hyperframes-core`, `hyperframes-animation`, `hyperframes-keyframes`, and `hyperframes-registry` are available (listed among your skills, or present under `~/.claude/skills` or `~/.agents/skills`). If any is missing, stop and tell the user to install the HyperFrames plugin: `claude plugin marketplace add heygen-com/hyperframes` then `claude plugin install hyperframes@hyperframes`, and restart Claude Code. `media-use` is optional: without it, use only the sounds bundled by the calling skill or make the video silent. If a rule or blueprint named in `references/styles.md` is missing from the installed version, pick an equivalent from `rules-index.md` or `blueprints-index.md`.
 1. **Brief.** Topic, audience, one-sentence promise, and the hook (pain, contrast, or result). Propose 3 hooks unless the user gave one.
 2. **Style.** Pick one style from `references/styles.md` that fits the topic and the brand. Say which and why in one line.
 3. **Scene plan.** Show the user a short table, one row per scene, before building:
