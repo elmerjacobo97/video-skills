@@ -1,0 +1,45 @@
+{
+  "icon": "terminal",
+  "frames": [
+    { "type": "cover", "title": "Instala HyperFrames en Claude Code", "subtitle": "3 comandos y un reinicio" },
+    {
+      "type": "list",
+      "title": "Antes de empezar",
+      "items": [
+        { "name": "Node.js 22+", "note": "para ejecutar la CLI" },
+        { "name": "FFmpeg", "note": "para renderizar el video" },
+        { "name": "Git LFS", "note": "obligatorio: el repo lo usa", "highlighted": true }
+      ]
+    },
+    {
+      "type": "step",
+      "number": 1,
+      "title": "Instala Git LFS",
+      "command": ["brew install git-lfs", "&& git lfs install"],
+      "output": "Git LFS initialized."
+    },
+    {
+      "type": "step",
+      "number": 2,
+      "title": "Agrega el marketplace",
+      "command": ["claude plugin marketplace", "add heygen-com/hyperframes"],
+      "highlight": "heygen-com/hyperframes",
+      "output": "Successfully added marketplace: hyperframes"
+    },
+    {
+      "type": "step",
+      "number": 3,
+      "title": "Instala el plugin",
+      "command": ["claude plugin install", "hyperframes@hyperframes"],
+      "output": "Successfully installed plugin: hyperframes@hyperframes"
+    },
+    {
+      "type": "step",
+      "number": 4,
+      "title": "Reinicia y escribe",
+      "prompt": ">",
+      "command": "/hyperframes:hyperframes"
+    },
+    { "type": "closing", "question": "¿Qué video harías primero?" }
+  ]
+}

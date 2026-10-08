@@ -1,0 +1,20 @@
+{
+  "site": "elmerjacobo.dev",
+  "signature": "Elmer Jacobo | Developer",
+  "closing": {
+    "save": "Guárdalo para después",
+    "follow": "Sígueme para más"
+  },
+  "colors": {
+    "background": "#0B0B0B",
+    "text": "#F5F4EF",
+    "accent": "#D4FF3F",
+    "surface": "#151515",
+    "line": "#2A2A2A",
+    "muted": "#8F8E89"
+  },
+  "fonts": {
+    "display": "Space Grotesk",
+    "mono": "Space Mono"
+  }
+}
